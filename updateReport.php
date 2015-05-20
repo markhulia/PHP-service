@@ -25,12 +25,12 @@ if (!empty($_POST)) {
         
         //or just use this use this one:
         $response["success"] = 0;
-        $response["message"] = "Database Error. Couldn't add post!";
+        $response["message"] = "PHP Database Error. Couldn't add post!";
         die(json_encode($response));
     }
 
     $response["success"] = 1;
-    $response["message"] = "Post Successfully Added!";
+    $response["message"] = "PHP Post Successfully Added!";
     echo json_encode($response);
    
 } else {

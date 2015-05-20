@@ -18,7 +18,7 @@ try {
 }
 catch (PDOException $ex) {
     $response["success"] = 0;
-    $response["message"] = "Database Error!";
+    $response["message"] = "PHP Database Error!";
     die(json_encode($response));
 }
 
@@ -28,7 +28,7 @@ $rows = $stmt->fetchAll();
 
 if ($rows) {
     $response["success"] = 1;
-    $response["message"] = "Post Available!";
+    $response["message"] = "PHP Post Available!";
     $response["posts"]   = array();
     
     foreach ($rows as $row) {
@@ -49,7 +49,7 @@ if ($rows) {
     
 } else {
     $response["success"] = 0;
-    $response["message"] = "No Post Available!";
+    $response["message"] = "PHP No Post Available!";
     die(json_encode($response));
 }
 

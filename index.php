@@ -21,7 +21,7 @@ if (!empty($_POST)) {
 	
 	    // Create some data that will be the JSON response 
 	    $response["success"] = 0;
-	    $response["message"] = "Please Enter Both a Username and Password.";
+	    $response["message"] = "PHP Please Enter Both a Username and Password.";
 
 		//die will kill the page and not execute any code below, it will also
 		//display the parameter... in this case the JSON data our Android
@@ -52,7 +52,7 @@ if (!empty($_POST)) {
 
 		//You eventually want to comment out the above die and use this one:
 		$response["success"] = 0;
-		$response["message"] = "Database Error. Please Try Again!";
+		$response["message"] = "PHP Database Error. Please Try Again!";
 		die(json_encode($response));
     }
     
@@ -61,10 +61,10 @@ if (!empty($_POST)) {
     //page
     $row = $stmt->fetch();
     if ($row) {
-        die("This username is already in use");
+        die("PHP This username is already in use");
 		//You could comment out the above die and use this one:
 		$response["success"] = 0;
-		$response["message"] = "I'm sorry, this username is already in use";
+		$response["message"] = "PHP I'm sorry, this username is already in use";
 		die(json_encode($response));
     }
     
@@ -89,7 +89,7 @@ if (!empty($_POST)) {
         die("Failed to run query: " . $ex->getMessage());
 		//You could comment out the above die and use this one:
 		$response["success"] = 0;
-		$response["message"] = "Database Error. Please Try Again!";
+		$response["message"] = "PHP Database Error. Please Try Again!";
 		die(json_encode($response));
     }
 
@@ -99,7 +99,7 @@ if (!empty($_POST)) {
 	//json data that will be read by the Android application, which will login
 	//the user (or redirect to a different activity, I'm not sure yet..)
 	$response["success"] = 1;
-	$response["message"] = "Username Successfully Added!";
+	$response["message"] = "PHP Username Successfully Added!";
 	echo json_encode($response);
 	
 	//for a php webservice you could do a simple redirect and die.

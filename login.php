@@ -29,7 +29,7 @@ if (!empty($_POST)) {
         
         //or just use this use this one to product JSON data:
         $response["success"] = 0;
-        $response["message"] = "Database Error1. Please Try Again!";
+        $response["message"] = "PHP Database Error1. Please Try Again!";
         die(json_encode($response));
         
     }
@@ -52,11 +52,11 @@ if (!empty($_POST)) {
     // Otherwise, we display a login failed message and show the login form again 
     if ($login_ok) {
         $response["success"] = 1;
-        $response["message"] = "Login successful!";
+        $response["message"] = "PHP Login successful!";
         die(json_encode($response));
     } else {
         $response["success"] = 0;
-        $response["message"] = "Invalid Credentials!";
+        $response["message"] = "PHP Invalid Credentials!";
         die(json_encode($response));
     }
 } else {
