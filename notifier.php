@@ -1,7 +1,7 @@
 <?
 require("config.inc.php");
 $query_picked = "UPDATE `items` SET picked = :bool_Value, user = :username WHERE item_id = :item_ID"
-$query_info = "select * from `items` where picked = 0"
+
 
  //Update query
     $query_params = array(
@@ -21,7 +21,7 @@ try {
         // For testing, a die and message. 
         //die("Failed to run query: " . $ex->getMessage());
         
-        //or just use this use:
+        //or just use this use this one:
         $response["success"] = 0;
         $response["message"] = "PHP Database Error. Notifier is dead";
         die(json_encode($response));

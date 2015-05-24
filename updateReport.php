@@ -3,7 +3,6 @@
 //load and connect to MySQL database stuff
 require("config.inc.php");
 
-if (!empty($_POST)) {
 	//initial query
 	$query = "INSERT INTO comments ( username, title, message ) VALUES ( :user, :title, :message ) ";
 
@@ -33,22 +32,6 @@ if (!empty($_POST)) {
     $response["message"] = "PHP Post Successfully Added!";
     echo json_encode($response);
    
-} else {
-?>
-		<h1>Add Comment</h1> 
-		<form action="updateReport.php" method="post"> 
-		    Username:<br /> 
-		    <input type="text" name="username" placeholder="username" /> 
-		    <br /><br /> 
-		    Title:<br /> 
-		    <input type="text" name="title" placeholder="post title" /> 
-		    <br /><br />
-			Message:<br /> 
-		    <input type="text" name="message" placeholder="post message" /> 
-		    <br /><br />
-		    <input type="submit" value=" Update Report" /> 
-		</form> 
-	<?php
-}
+
 
 ?> 

@@ -5,6 +5,7 @@ require("config.inc.php");
 
  //$nextItemQuery = "SELECT * FROM `items` WHERE item_id = :item_id";
 //$nextItemQuery = "UPDATE `items` SET picked = 1 WHERE rowNr = :rowNr";
+if (!empty($_POST)) {
 $nextItemQuery = "SELECT * FROM `items` where rowNr = :rowNr";
 
 $query_params = array(
@@ -54,5 +55,5 @@ if ($rows) {
     $response["message"] = "PHP No Post Available!";
     die(json_encode($response));
 }
-
+}
 ?> 
