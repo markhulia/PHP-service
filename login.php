@@ -2,6 +2,7 @@
 
 //load and connect to MySQL database stuff
 require("config.inc.php");
+$login_ok = false;
 
 if (!empty($_POST)) {
     //gets user's info based off of a username.
@@ -41,7 +42,7 @@ if (!empty($_POST)) {
     //fetching all the rows from the query
     $row = $stmt->fetch();
     if ($row) {
-        //if we encrypted the password, we would unencrypt it here, but in our case we just
+        //if we encrypted the password, we would decrypt it here, but in our case we just
         //compare the two passwords
         if ($_POST['password'] === $row['password']) {
             $login_ok = true;

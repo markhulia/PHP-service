@@ -20,7 +20,7 @@ if (!empty($_POST)) {
         $result = $stmt->execute($query_params);
     }
     catch (PDOException $ex) {
-        // For testing, you could use a die and message. 
+        // For testing, a die and message. 
         //die("Failed to run query: " . $ex->getMessage());
         
         //or just use this use this one:
@@ -36,7 +36,7 @@ if (!empty($_POST)) {
 } else {
 ?>
 		<h1>Add Comment</h1> 
-		<form action="addcomment.php" method="post"> 
+		<form action="updateReport.php" method="post"> 
 		    Username:<br /> 
 		    <input type="text" name="username" placeholder="username" /> 
 		    <br /><br /> 
@@ -46,7 +46,7 @@ if (!empty($_POST)) {
 			Message:<br /> 
 		    <input type="text" name="message" placeholder="post message" /> 
 		    <br /><br />
-		    <input type="submit" value="Add Comment" /> 
+		    <input type="submit" value=" Update Report" /> 
 		</form> 
 	<?php
 }

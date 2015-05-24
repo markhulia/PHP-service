@@ -29,18 +29,20 @@ $rows = $stmt->fetchAll();
 if ($rows) {
     $response["success"] = 1;
     $response["message"] = "PHP Post Available!";
-    $response["posts"]   = array();
+    $response["items_report"]   = array();
     
     foreach ($rows as $row) {
         $post             = array();
-		$post["post_id"]  = $row["post_id"];
-        $post["username"] = $row["username"];
-        $post["title"]    = $row["title"];
-        $post["message"]  = $row["message"];
-        
-        
+		$post["item_id"]  = $row["item_id"];
+        $post["item_info"] = $row["item_info"];
+        $post["item_name"]    = $row["item_name"];
+        $post["item_quantity"]  = $row["item_quantity"];
+        $post["item_location"]  = $row["item_location"];
+        $post["comment"]  = $row["comment"];
+
+
         //update our repsonse JSON data
-        array_push($response["posts"], $post);
+        array_push($response["items_report"], $post);
     }
     
     // echoing JSON response
