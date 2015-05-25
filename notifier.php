@@ -1,20 +1,26 @@
 <?
 require("config.inc.php");
-$query_picked = "UPDATE `items` SET picked = :bool_Value, user = :username WHERE item_id = :item_ID"
+$query_picked = "UPDATE `items` SET picked = :picked WHERE rowNr = :rowNr";
 
 
  //Update query
-    $query_params = array(
-        ':item_id' => $_POST['item_id'],
-        ':item_name' => $_POST['item_name'],
-		':item_quantity' => $_POST['item_quantity']
-		':item_location' => $_POST['item_location']
-		':item_info' => $_POST['item_info']
-		':comment' => $_POST['comment']
+  //   $query_params = array(
+  //       ':item_id' => $_POST['item_id'],
+  //       ':item_name' => $_POST['item_name'],
+		// ':item_quantity' => $_POST['item_quantity']
+		// ':item_location' => $_POST['item_location']
+		// ':item_info' => $_POST['item_info']
+		// ':comment' => $_POST['comment']
+  //   );
+   $query_params = array(
+        
+		':picked' => $_POST['picked'],
+		':rowNr' => $_POST['rowNr']
     );
 
+
 try {
-        $stmt   = $db->prepare($query);
+        $stmt   = $db->prepare($query_picked);
         $result = $stmt->execute($query_params);
     }
     catch (PDOException $ex) {
@@ -32,5 +38,6 @@ try {
 
 //TODO initialize :item_ID
 //TODO initialize :bool_Value
+
 
 ?>
