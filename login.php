@@ -4,21 +4,15 @@
 require("config.inc.php");
 $login_ok = false;
 
-if (!empty($_POST)) {
-    //gets user's info based off of a username.
-    $query = " 
-            SELECT 
-                id, 
-                username, 
-                password
-            FROM users 
-            WHERE 
-                username = :username 
-        ";
-    
-    $query_params = array(
+ $query_params = array(
         ':username' => $_POST['username']
     );
+
+if (!empty($_POST)) {
+    //gets user's info based off of a username.
+    $query = " SELECT  id, username, password FROM users WHERE username = :username ";
+    
+   
     
     try {
         $stmt   = $db->prepare($query);
