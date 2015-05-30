@@ -33,7 +33,7 @@ if ($rows) {
     
     foreach ($rows as $row) {
         $post             = array();
-		$post["item_id"]  = $row["item_id"];
+		$post["rowNr"]  = $row["rowNr"];
         $post["item_info"] = $row["item_info"];
         $post["item_name"]    = $row["item_name"];
         $post["item_quantity"]  = $row["item_quantity"];

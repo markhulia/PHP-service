@@ -18,7 +18,6 @@ $firstItem = "SELECT * FROM `items` LIMIT 1";
 }
 $rows = $stmt->fetchAll();
 
-
 if ($rows) {
     $response["success"] = 1;
     $response["message"] = "PHP Post Available!";

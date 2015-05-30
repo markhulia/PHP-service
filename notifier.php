@@ -1,6 +1,6 @@
-<?
+<?php
 require("config.inc.php");
-$query_picked = "UPDATE `items` SET picked = :picked WHERE rowNr = :rowNr";
+$query_picked = "UPDATE `items` SET picked = :picked, item_quantity = :item_quantity, comment = :comment WHERE rowNr = :rowNr";
 
 
  //Update query
@@ -15,7 +15,9 @@ $query_picked = "UPDATE `items` SET picked = :picked WHERE rowNr = :rowNr";
    $query_params = array(
         
 		':picked' => $_POST['picked'],
-		':rowNr' => $_POST['rowNr']
+		':rowNr' => $_POST['rowNr'],
+		':item_quantity' => $_POST['item_quantity'],
+    ':comment' => $_POST['comment']
     );
 
 

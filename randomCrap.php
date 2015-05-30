@@ -3,16 +3,8 @@
 //load and connect to MySQL database stuff
 require("config.inc.php");
 
- //$nextItemQuery = "SELECT * FROM `items` WHERE item_id = :item_id";
-//$nextItemQuery = "UPDATE `items` SET picked = 1 WHERE rowNr = :rowNr";
-
-$nextItemQuery = "SELECT * FROM `items`  Limit 1";
+$nextItemQuery = "SELECT * FROM `items`  WHERE picked = 0 Limit 1";
 $query_params = null;
-// $query_params = array(
-        
-// 		':rowNr' => 
-// 		$_POST['rowNr']
-//     );
 
  try {
         $stmt   = $db->prepare($nextItemQuery);
@@ -35,7 +27,6 @@ if ($rows) {
     foreach ($rows as $row) {
         $post             = array();
         $post["rowNr"] = $row["rowNr"];
-		$post["item_id"]  = $row["item_id"];
         $post["item_info"] = $row["item_info"];
         $post["item_name"]    = $row["item_name"];
         $post["item_quantity"]  = $row["item_quantity"];
@@ -57,10 +48,4 @@ if ($rows) {
     die(json_encode($response));
 
 }
-// else
-// {
-//    $response["success"] = 0;
-//     $response["message"] = "i have no idea why it died!";
-//     die(json_encode($response)); 
-// }
 ?> 
