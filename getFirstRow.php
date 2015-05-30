@@ -3,6 +3,7 @@
 //load and connect to MySQL database stuff
 require("config.inc.php");
 $query_params = null;
+
 $firstItem = "SELECT * FROM `items` LIMIT 1";
 
 
@@ -16,6 +17,7 @@ $firstItem = "SELECT * FROM `items` LIMIT 1";
     die(json_encode($response));
 }
 $rows = $stmt->fetchAll();
+
 
 if ($rows) {
     $response["success"] = 1;
