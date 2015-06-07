@@ -2,15 +2,17 @@
 
 //load and connect to MySQL database stuff
 require("config.inc.php");
+$nextItemQuery="SELECT * FROM `items` WHERE picked = 0 Limit 1";
+// $nextItemQuery = "SELECT * FROM `items`  WHERE picked = 0 Limit 1";
+$query_params = {
+    ':rowNr' => $_POST['rowNr']
+};
 
-$nextItemQuery = "SELECT * FROM `items`  WHERE picked = 0 Limit 1";
-$query_params = null;
-
- try {
-        $stmt   = $db->prepare($nextItemQuery);
-        $result = $stmt->execute($query_params);
-    }
-    catch (PDOException $ex) {
+try {
+    $stmt   = $db->prepare($nextItemQuery);
+    $result = $stmt->execute($query_params);
+}
+catch (PDOException $ex) {
     $response["success"] = 0;
     $response["message"] = "PHP Database Error!";
     die(json_encode($response));

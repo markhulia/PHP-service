@@ -1,4 +1,4 @@
-<?php
+2<?php
 
 //load and connect to MySQL database stuff
 require("config.inc.php");
