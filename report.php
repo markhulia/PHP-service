@@ -6,6 +6,7 @@ it within a php script.  Since we want this script to add a new user to our db,
 we will be talking with our database, and therefore,
 let's require the connection to happen:
 */
+
 require("config.inc.php");
 
 //initial query
