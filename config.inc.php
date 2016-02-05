@@ -3,8 +3,8 @@
     // These variables define the connection information for your MySQL database 
 	// This is also for the Xampp example,  if you are hosting on your own server,
 	//make the necessary changes 
-    $username = "george"; 
-    $password = "pumpkin"; 
+    $username = "consafe"; 
+    // $password = "consafe";
     $host = "localhost"; 
     $dbname = "webservice"; 
 
@@ -28,7 +28,7 @@
         // PDO is designed to provide a flexible interface between PHP and many 
         // different types of database servers.  For more information on PDO: 
         // http://us2.php.net/manual/en/class.pdo.php 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
+        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username); 
     } 
     catch(PDOException $ex) 
     { 
